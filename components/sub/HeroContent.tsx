@@ -10,7 +10,6 @@ import {
 } from "@/utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import scroll from "@/public/scroll.png";
-// import pdf from "../assets/pdf/Mubasil-Resume.pdf";
 import Image from "next/image";
 
 const HeroContent = () => {
