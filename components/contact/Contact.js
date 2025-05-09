@@ -71,7 +71,7 @@ const Contact = () => {
         >
           <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[14px]">
-            Contact&nbsp;&nbsp;
+            CONTACT ME&nbsp;&nbsp;
           </h1>
         </motion.div>
         <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-10">

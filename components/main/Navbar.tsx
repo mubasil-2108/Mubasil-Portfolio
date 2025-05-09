@@ -38,7 +38,7 @@ const Navbar = () => {
               Resume
             </a>
             <a href="#contact" className="cursor-pointer">
-              Contact Us
+              Contact Me
             </a>
           </div>
         </div>

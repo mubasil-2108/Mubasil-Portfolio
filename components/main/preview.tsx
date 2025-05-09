@@ -58,7 +58,7 @@ const Preview = () => {
             >
                 <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
                 <h1 className="Welcome-text text-[14px]">
-                    Preview CV&nbsp;&nbsp;
+                    PREVIEW CV&nbsp;&nbsp;
                 </h1>
             </motion.div>
             <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-10 pb-20">
@@ -129,7 +129,7 @@ const Preview = () => {
                         transition={{ duration: 1, ease: 'easeOut' }}
                         className="text-[40px] font-semibold text-white py-20"
                     >
-                        Hi, it's me <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">Mubasil!</span><br />
+                        Hi&#44; its me <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">Mubasil!</span><br />
                         Wanna see my CV? Click below to preview it!
                     </motion.h1>
                     <motion.a
