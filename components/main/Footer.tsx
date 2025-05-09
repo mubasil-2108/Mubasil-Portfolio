@@ -18,30 +18,30 @@ const Footer = () => {
                         <div className="font-bold text-[16px]">Community</div>
                         <p className="flex flex-row items-center my-[15px] cursor-pointer">
                             <FaFacebook />
-                            <span className="text-[15px] ml-[6px]"><a href="https://www.facebook.com/mubasil.behzad.1?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="decoration-none" >Facebook</a></span>
+                            <span className="text-[15px] ml-[6px]"><a href={process.env.NEXT_PUBLIC_FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="decoration-none" >Facebook</a></span>
                         </p>
                         <p className="flex flex-row items-center my-[15px] cursor-pointer">
                             <RxGithubLogo />
-                            <span className="text-[15px] ml-[6px]"><a href="https://github.com/mubasil-2108" target="_blank" rel="noopener noreferrer" className="decoration-none" >GitHub</a></span>
+                            <span className="text-[15px] ml-[6px]"><a href={process.env.NEXT_PUBLIC_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="decoration-none" >GitHub</a></span>
                         </p>
                         <p className="flex flex-row items-center my-[15px] cursor-pointer">
                             <FaInstagram />
-                            <span className="text-[15px] ml-[6px]"><a href="https://www.instagram.com/mubasil_2108" target="_blank" rel="noopener noreferrer" className="decoration-none" >Instagram</a></span>
+                            <span className="text-[15px] ml-[6px]"><a href={process.env.NEXT_PUBLIC_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="decoration-none" >Instagram</a></span>
                         </p>
                     </div>
                     <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
                         <div className="font-bold text-[16px]">Social Media</div>
                         <p className="flex flex-row items-center my-[15px] cursor-pointer">
                             <FaInstagram />
-                            <span className="text-[15px] ml-[6px]"><a href="https://www.instagram.com/mubasil_2108" target="_blank" rel="noopener noreferrer" className="decoration-none" >Instagram</a></span>
+                            <span className="text-[15px] ml-[6px]"><a href={process.env.NEXT_PUBLIC_INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="decoration-none" >Instagram</a></span>
                         </p>
                         <p className="flex flex-row items-center my-[15px] cursor-pointer">
                             <RxLinkedinLogo />
-                            <span className="text-[15px] ml-[6px]"><a href="https://www.linkedin.com/in/mubasil-behzad-33b041301" target="_blank" rel="noopener noreferrer" className="decoration-none" >Linkedin</a></span>
+                            <span className="text-[15px] ml-[6px]"><a href={process.env.NEXT_PUBLIC_LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="decoration-none" >Linkedin</a></span>
                         </p>
                         <p className="flex flex-row items-center my-[15px] cursor-pointer">
                             <RxGithubLogo />
-                            <span className="text-[15px] ml-[6px]"><a href="https://github.com/mubasil-2108" target="_blank" rel="noopener noreferrer" className="decoration-none" >GitHub</a></span>
+                            <span className="text-[15px] ml-[6px]"><a href={process.env.NEXT_PUBLIC_GITHUB_URL} target="_blank" rel="noopener noreferrer" className="decoration-none" >GitHub</a></span>
                         </p>
                     </div>
                     <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">

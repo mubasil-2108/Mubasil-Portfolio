@@ -240,24 +240,28 @@ export const Skill_data = [
 
 export const Socials = [
   {
+    id:1,
     name: "Git Hub",
     src: "/github-142-svgrepo-com.svg",
-    link: "https://github.com/mubasil-2108"
+    link: process.env.NEXT_PUBLIC_GITHUB_URL
   },
   {
+    id:2,
     name: "Linkedin",
     src: "/linkedin-svgrepo-com.svg",
-    link: "https://www.linkedin.com/in/mubasil-behzad-33b041301"
+    link: process.env.NEXT_PUBLIC_LINKEDIN_URL
   },
   {
+    id:3,
     name: "Facebook",
     src: "/facebook.svg",
-    link: "https://www.facebook.com/mubasil.behzad.1?mibextid=ZbWKwL"
+    link: process.env.NEXT_PUBLIC_FACEBOOK_URL
   },
   {
+    id:4,
     name: "Instagram",
     src: "/instagram.svg",
-    link: "https://www.instagram.com/mubasil_2108"
+    link: process.env.NEXT_PUBLIC_INSTAGRAM_URL
   },
 ];
 
