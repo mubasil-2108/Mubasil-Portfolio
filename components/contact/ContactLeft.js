@@ -30,17 +30,17 @@ const ContactLeft = () => {
         <span className="text-white text-base uppercase font-titleFont mb-4">Find me in</span>
         <div className="flex gap-4">
           <span className="bannerIcon">
-            <a href='https://www.facebook.com/mubasil.behzad.1?mibextid=ZbWKwL' target='_blank' rel="noopener noreferrer">
+            <a href={process.env.NEXT_PUBLIC_FACEBOOK_URL} target='_blank' rel="noopener noreferrer">
               <FaFacebookF color='#fff' />
             </a>
           </span>
           <span className="bannerIcon">
-            <a href='https://github.com/mubasil-2108' target='_blank' rel="noopener noreferrer">
+            <a href={process.env.NEXT_PUBLIC_GITHUB_URL} target='_blank' rel="noopener noreferrer">
               <FaGithub color='#fff'/>
             </a>
           </span>
           <span className="bannerIcon">
-            <a href='https://www.linkedin.com/in/mubasil-behzad-33b041301' target='_blank' rel="noopener noreferrer">
+            <a href={process.env.NEXT_PUBLIC_LINKEDIN_URL} target='_blank' rel="noopener noreferrer">
               <FaLinkedinIn color='#fff'/>
             </a>
           </span>
