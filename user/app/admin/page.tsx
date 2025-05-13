@@ -47,16 +47,21 @@ const AdminPage = () => {
     }
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const files = Array.from(event.target.files);
+        const fileList = event.target.files;
+        if (!fileList) return; // ✅ Prevent null from causing error
+
+        const files = Array.from(fileList);
         if (files.length > 0) {
             const newImages = files.map((file) => URL.createObjectURL(file));
             setSelectedImage(prev => [...prev, ...newImages]);
             setFiles(prev => [...prev, ...files]);
+
             if (selectedImage.length === 0) {
                 setCurrentIndex(0);
             }
         }
     };
+
 
     const handleNextImage = () => {
         if (selectedImage.length === 0) return;
