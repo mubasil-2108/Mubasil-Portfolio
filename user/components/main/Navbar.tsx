@@ -50,7 +50,7 @@ const Navbar = () => {
             <IoPersonSharp size={24} color="white" className="cursor-pointer hover:scale-110 transition-all duration-300" />
           </Link>
           {Socials.map((social) => (
-            <a key={social.id} href={social.link} target="_blank" rel="noopener noreferrer">
+            <Link key={social.id} href={social.link} target="_blank" rel="noopener noreferrer">
               <Image
                 src={social.src}
                 className="cursor-pointer hover:scale-110 transition-all duration-300"
@@ -59,7 +59,7 @@ const Navbar = () => {
                 width={24}
                 height={24}
               />
-            </a>
+            </Link>
           ))}
         </div>
       </div>
