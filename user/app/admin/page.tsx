@@ -32,7 +32,7 @@ const AdminPage = () => {
     const [formData, setFormData] = useState(initialState);
     const dispatch = useAppDispatch();
 
-    const toggleDrawer = (newOpen) => {
+    const toggleDrawer = (newOpen: boolean) => {
         setOpen(newOpen);
     };
 
