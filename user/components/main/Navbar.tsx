@@ -46,9 +46,9 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-row gap-5">
-          <a href={'/auth'} target="_self">
+          <Link href={'/auth'} target="_self">
             <IoPersonSharp size={24} color="white" className="cursor-pointer hover:scale-110 transition-all duration-300" />
-          </a>
+          </Link>
           {Socials.map((social) => (
             <a key={social.id} href={social.link} target="_blank" rel="noopener noreferrer">
               <Image
