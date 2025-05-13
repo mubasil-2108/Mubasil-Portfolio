@@ -2,6 +2,12 @@
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+interface CheckAuthProps {
+  isAuthenticated: boolean | undefined;
+  user: any;
+  children: React.ReactNode;
+}
+
 const validAdminPaths = [
   '/admin',
   '/admin/project'
@@ -9,7 +15,7 @@ const validAdminPaths = [
 
 const publicPaths = ['/login', '/register', '/auth', '/portfolio', ];
 
-function CheckAuth({ isAuthenticated, user, children }) {
+function CheckAuth ({ isAuthenticated, user, children }: CheckAuthProps) {
   const router = useRouter();
   const pathname = usePathname();
   const [isChecking, setIsChecking] = useState(true);
