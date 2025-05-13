@@ -6,8 +6,21 @@ import { tokens } from '@/theme'
 import axios from 'axios';
 import Image from 'next/image';
 
+interface ProjectImageUploadProps {
+  setIsHovered: (isHovered: boolean) => void;
+  files: File[];
+  setUploadedImageUrl: (url: string[]) => void; // Accepts an array of strings (URLs)
+  selectedImage: string[]; // Array of image URLs
+  currentIndex: number;
+  isHovered: boolean;
+  handleNextImage: () => void;
+  handleImageChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handlePrevImage: () => void;
+}
+
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const ProjectImageUpload = ({ setIsHovered, files, setUploadedImageUrl, selectedImage, currentIndex, isHovered, handleNextImage, handleImageChange, handlePrevImage }) => {
+const ProjectImageUpload: React.FC<ProjectImageUploadProps> = ({ setIsHovered, files, setUploadedImageUrl, selectedImage, currentIndex, isHovered, handleNextImage, handleImageChange, handlePrevImage }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 

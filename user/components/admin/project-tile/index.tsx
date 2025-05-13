@@ -2,13 +2,27 @@
 import { Box, Card, CardActions, CardContent, CardMedia, Chip, Collapse, Divider, IconButton, styled, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { FaAngleLeft, FaAngleRight, FaAngleUp, FaGithub, FaGlobe, FaTrash } from 'react-icons/fa'
-import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { deleteProject, fetchAllProjects } from '@/store/project-slice';
+import { useAppDispatch } from '@/store/hooks';
 
-const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
+interface Project {
+    _id: string;
+    projectName: string;
+    projectImage: string[]; // This ensures it’s always an array of strings
+    projectTechnologies: string[];
+    gitHubUrl: string;
+    websiteUrl: string;
+    projectDescription: string;
+}
+
+interface AdminProjectTileProps {
+  project: Project;
+}
+
+const ExpandMore = styled((props: { expand: boolean; onClick: () => void; 'aria-expanded': boolean; 'aria-label': string; children: React.ReactNode }) => {
+     const { expand, children, ...other } = props;
+    return <IconButton {...other}>{children}</IconButton>;
 })(({ expand }) => ({
     marginLeft: 'auto',
     transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
@@ -16,10 +30,10 @@ const ExpandMore = styled((props) => {
 }));
 
 
-const AdminProjectTile = ({ project }) => {
+const AdminProjectTile: React.FC<AdminProjectTileProps> = ({ project }) => {
     const [expanded, setExpanded] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const handleNextImage = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % project?.projectImage.length);
     };

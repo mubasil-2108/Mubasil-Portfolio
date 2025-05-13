@@ -43,7 +43,7 @@ export const fetchAllProjects = createAsyncThunk(
 
 export const deleteProject = createAsyncThunk(
     'project/deleteProject',
-    async (id)=>{
+    async (id:string)=>{
         const response = await axios.delete(`${API_URL}/api/admin/projects/delete/${id}`);
         return response?.data;
     }
