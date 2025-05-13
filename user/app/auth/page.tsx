@@ -25,7 +25,7 @@ const Auth = () => {
     const router = useRouter();
     const [isMounted, setIsMounted] = useState(false);
 
-     useEffect(() => {
+    useEffect(() => {
         setIsMounted(true);
     }, []);
 
@@ -33,7 +33,7 @@ const Auth = () => {
         e.preventDefault();
 
         if (!isMounted) return;
-        
+
         if (form === 'login') {
             await dispatch(loginUser(formData)).then((data) => {
                 if (data?.payload?.success) {
@@ -86,7 +86,7 @@ const Auth = () => {
                         setFormData(initialState)
                         setForm('login')
                         setConfirmPassword('')
-                         window.history.pushState(null, '', '');
+                        window.history.pushState(null, '', '');
                     } else {
                         toast.error(data?.payload?.message)
                     }

@@ -2,6 +2,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+interface AuthState {
+    email: string;
+    password: string;
+}
+
+interface VerifyOtpState {
+    email: string;
+    otp: string;
+}
+
 const initialState = {
     isAuthenticated: false,
     isLoading: true,
@@ -10,7 +20,7 @@ const initialState = {
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export const registerUser = createAsyncThunk(
     'auth/register',
-    async (formData) => {
+    async (formData: AuthState) => {
         const response = await axios.post(`${API_URL}/api/auth/register`,
             formData,
             {
@@ -23,7 +33,7 @@ export const registerUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
     'auth/login',
-    async (formData) => {
+    async (formData: AuthState) => {
         const response = await axios.post(`${API_URL}/api/auth/login`,
             formData,
             {
@@ -46,17 +56,17 @@ export const forgetPassword = createAsyncThunk(
         return response.data;
     },
     {
-        condition: (formData) => (
-            formData?.email
-        )
+        condition: (formData: AuthState) => {
+            return Boolean(formData?.email);
+        }
     }
 )
 
 export const sendOtp = createAsyncThunk(
     'auth/forgetpassword/sendotp',
-    async (email) => {
+    async (email: string) => {
         const response = await axios.post(`${API_URL}/api/auth/send-otp`,
-             {email},
+            { email },
             {
                 withCredentials: true
             }
@@ -67,7 +77,7 @@ export const sendOtp = createAsyncThunk(
 
 export const verifyOtp = createAsyncThunk(
     'auth/forgetpassword/verifyotp',
-    async (formData) => {
+    async (formData: VerifyOtpState) => {
         const response = await axios.post(`${API_URL}/api/auth/verify-otp`,
             formData,
             {
@@ -120,14 +130,14 @@ const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setUser: (state, action) => { },
+        setUser: () => { },
     },
     extraReducers: (builder) => {
         builder
             .addCase(registerUser.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(registerUser.fulfilled, (state, action) => {
+            .addCase(registerUser.fulfilled, (state) => {
                 state.isLoading = false;
                 state.user = null;
                 state.isAuthenticated = false;
@@ -164,7 +174,7 @@ const authSlice = createSlice({
                 state.user = null;
                 state.isAuthenticated = false;
             })
-            .addCase(logoutUser.fulfilled, (state, action) => {
+            .addCase(logoutUser.fulfilled, (state) => {
                 state.isLoading = false;
                 state.user = null;
                 state.isAuthenticated = false;
@@ -172,7 +182,7 @@ const authSlice = createSlice({
             .addCase(sendOtp.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(sendOtp.fulfilled, (state, action) => {
+            .addCase(sendOtp.fulfilled, (state) => {
                 state.isLoading = false;
                 state.user = null;
                 state.isAuthenticated = false;
@@ -185,7 +195,7 @@ const authSlice = createSlice({
             .addCase(verifyOtp.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(verifyOtp.fulfilled, (state, action) => {
+            .addCase(verifyOtp.fulfilled, (state) => {
                 state.isLoading = false;
                 state.user = null;
                 state.isAuthenticated = false;
