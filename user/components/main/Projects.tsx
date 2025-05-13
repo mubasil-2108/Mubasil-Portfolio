@@ -4,6 +4,16 @@ import ProjectCard from "../sub/ProjectCard";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { fetchAllProjects } from "@/store/project-slice";
 
+interface Project {
+  _id: string;
+  projectName: string;
+  projectDescription: string;
+  projectImage: string[]; // assuming it's an array of image URLs
+  gitHubUrl?: string;
+  websiteUrl?: string;
+}
+
+
 const Projects = () => {
 
   const { projectList } = useAppSelector(state => state.adminProject);
@@ -27,14 +37,14 @@ const Projects = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 h-full w-full gap-10 px-10">
         {
           projectList && projectList.length > 0 ?
-            projectList.map((item) => (
+            projectList.map((item: Project) => (
               <ProjectCard
                 key={item?._id}
                 src={item?.projectImage[0]}
                 title={item?.projectName}
                 description={item?.projectDescription}
-                lnk={item?.gitHubUrl}
-                webLink={item?.websiteUrl}
+                lnk={item?.gitHubUrl|| '#'}
+                webLink={item?.websiteUrl || '#'}
               />
             ))
             :
