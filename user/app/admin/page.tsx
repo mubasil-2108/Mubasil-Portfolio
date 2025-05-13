@@ -24,9 +24,9 @@ const initialState = {
 const AdminPage = () => {
     const [open, setOpen] = useState(false);
     const { projectList } = useAppSelector(state => state.adminProject);
-    const [uploadedImageUrl, setUploadedImageUrl] = useState([]);
-    const [selectedImage, setSelectedImage] = useState([]);
-    const [files, setFiles] = useState([]);
+    const [uploadedImageUrl, setUploadedImageUrl] = useState<string[]>([]);
+    const [selectedImage, setSelectedImage] = useState<string[]>([]);
+    const [files, setFiles] = useState<File[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const [formData, setFormData] = useState(initialState);
