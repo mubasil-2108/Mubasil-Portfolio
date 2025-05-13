@@ -21,7 +21,7 @@ interface AdminProjectTileProps {
 }
 
 const ExpandMore = styled((props: { expand: boolean; onClick: () => void; 'aria-expanded': boolean; 'aria-label': string; children: React.ReactNode }) => {
-     const { expand, children, ...other } = props;
+     const { children, ...other } = props;
     return <IconButton {...other}>{children}</IconButton>;
 })(({ expand }) => ({
     marginLeft: 'auto',

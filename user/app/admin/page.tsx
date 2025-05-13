@@ -108,7 +108,7 @@ const AdminPage = () => {
                 <Box className='grid-container' sx={{ mt: 5, mb: 10 }}>
                     {
                         projectList && projectList.length > 0 ?
-                            projectList.map((item: { _id?: string; id?: string; projectName?: string; projectDescription?: string; websiteUrl?: string; projectImage?: string[]; projectTechnologies?: string[]; gitHubUrl?: string; }) => (
+                            projectList.map((item: { _id: string; id: string; projectName: string; projectDescription: string; websiteUrl: string; projectImage: string[]; projectTechnologies: string[]; gitHubUrl: string; }) => (
                                 <AdminProjectTile key={item?._id || item?.id} project={item} />
                             ))
                             :
