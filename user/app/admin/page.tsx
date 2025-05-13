@@ -10,8 +10,6 @@ import AdminProjectTile from "@/components/admin/project-tile";
 import ProjectImageUpload from "@/components/admin/image-upload";
 import { logoutUser } from "@/store/auth-slice";
 
-
-
 const initialState = {
     image: [],
     projectName: "",

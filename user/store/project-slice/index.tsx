@@ -2,6 +2,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+interface ProjectType {
+  image: string[];
+  projectName: string;
+  projectDescription: string;
+  gitHubUrl: string;
+  websiteUrl: string;
+  technologies: string[];
+}
+
+
 const initialState ={
     isLoading : false,
     projectList : [],
@@ -10,7 +20,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const addNewProject = createAsyncThunk(
     'project/addNewProject',
-    async (formData)=>{
+    async (formData:ProjectType)=>{
         const result = await axios.post(`${API_URL}/api/admin/projects/add`,
             formData,
             {
