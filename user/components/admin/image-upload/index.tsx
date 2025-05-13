@@ -1,6 +1,6 @@
 'use client';
 import { Box, IconButton, Typography, useTheme } from '@mui/material'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { FaAngleLeft, FaAngleRight, FaCamera } from 'react-icons/fa'
 import { tokens } from '@/theme'
 import axios from 'axios';
@@ -11,8 +11,7 @@ const ProjectImageUpload = ({ setIsHovered, files, setUploadedImageUrl, selected
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    const uploadImageToCloudinary = async () => {
-
+    const uploadImageToCloudinary = useCallback(async () => {
         if (files.length === 0) return;
 
         const formData = new FormData();
@@ -29,13 +28,13 @@ const ProjectImageUpload = ({ setIsHovered, files, setUploadedImageUrl, selected
         } catch (error) {
             console.error('Error uploading images:', error);
         }
-    }
+    }, [files, setUploadedImageUrl]); // dependencies used inside the function
 
     useEffect(() => {
         if (files.length > 0) {
             uploadImageToCloudinary();
         }
-    }, [files])
+    }, [files, uploadImageToCloudinary]);
 
     return (
         <Box

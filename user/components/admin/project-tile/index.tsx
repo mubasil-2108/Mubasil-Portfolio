@@ -9,25 +9,10 @@ import { deleteProject, fetchAllProjects } from '@/store/project-slice';
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
-})(({ theme }) => ({
+})(({ expand }) => ({
     marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-    }),
-    variants: [
-        {
-            props: ({ expand }) => !expand,
-            style: {
-                transform: 'rotate(0deg)',
-            },
-        },
-        {
-            props: ({ expand }) => !!expand,
-            style: {
-                transform: 'rotate(180deg)',
-            },
-        },
-    ],
+    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+    transition: 'transform 0.3s',
 }));
 
 

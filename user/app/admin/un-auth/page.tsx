@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link";
 
 const UnauthorizedPage = () => {
     return (
@@ -16,7 +17,7 @@ const UnauthorizedPage = () => {
             <a
             className="p-2 z-50 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
           >
-            <a href="/" target="_self">Go Back</a>
+            <Link href="/" target="_self">Go Back</Link>
           </a>
           </div>
         </div>
