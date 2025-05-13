@@ -46,7 +46,7 @@ const AdminPage = () => {
         })
     }
 
-    const handleImageChange = (event) => {
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const files = Array.from(event.target.files);
         if (files.length > 0) {
             const newImages = files.map((file) => URL.createObjectURL(file));
@@ -68,7 +68,7 @@ const AdminPage = () => {
         setCurrentIndex((prev) => (prev - 1 + selectedImage.length) % selectedImage.length);
     }
 
-    const onSubmit = async (e) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         await dispatch(addNewProject({
             ...formData,
@@ -167,44 +167,6 @@ const AdminPage = () => {
                                     rows={4}
                                     id='outlined-multiline-static' label='Project Description' variant='outlined' />
                             </Box>
-                            {/* <Box
-                                 component='div'
-                                 sx={{ '& > :not(style)': { width: '100%', mt: 2 } }}
-                             >
-                                 <Autocomplete
-                                     multiple
-                                     freeSolo
-                                     options={commonTechnologies}
-                                     value={formData.technologies}
-                                     onChange={(event, newValue) => {
-                                         setFormData({
-                                             ...formData,
-                                             technologies: newValue
-                                         });
-                                     }}
-                                     renderTags={(value, getTagProps) =>
-                                         value.map((option, index) => (
-                                             <Chip
-                                                 variant="outlined"
-                                                 label={option}
-                                                 {...getTagProps({ index })}
-                                             />
-                                         ))
-                                     }
-                                     renderInput={(params) => (
-                                         <TextField
-                                             {...params}
-                                             label="Technologies"
-                                             placeholder="Add technologies"
-                                             sx={{
-                                                 '& .MuiInputBase-root': { height: 'auto', minHeight: 45 },
-                                                 '& .MuiInputLabel-root': { fontSize: '12px' },
-                                                 '& .MuiInputLabel-root.Mui-focused': { fontSize: '12px' }
-                                             }}
-                                         />
-                                     )}
-                                 />
-                             </Box> */}
                             <Box
                                 component='div'
                                 sx={{ '& > :not(style)': { width: '100%', mt: 2 } }}
