@@ -28,7 +28,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
     cors({
-        origin: 'https://mubasil-portfolio.vercel.app',
+        origin: 'http://localhost:3000',
         methods: ['GET', 'POST', 'DELETE', 'PUT'],
         allowedHeaders:[
             'Content-Type',
@@ -43,14 +43,8 @@ app.use(
     })
 )
 
-app.options('*', cors());
-
-
 app.use(cookieParser());
-// app.use(express.json());
-
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json());
 // Authentication
 app.use('/api/auth', authRouter);
 app.use('/api/admin/projects', projectRouter);
